@@ -18,19 +18,16 @@
             return (n1+n2)/2;
             }
 
-            let n1 = parseInt(prompt("Digite um número inteiro:"));
-            let n2 = parseInt(prompt("Digite um número inteiro:"));
+            function calcula_produto(n1,n2) {
+            return n1*n2;
+                }
+
+            let n1 = parseInt(prompt("Digite a nota I:"));
+            let n2 = parseInt(prompt("Digite a nota II:"));
 
             console.log("a média é: " + calcula_media(n1, n2));
 
-            function calcula_produto(x,y) {
-            return x*y;
-                }
-
-            let x = parseInt(prompt("Digite um número:"));
-            let y = parseInt(prompt("Digite um número:"));
-
-            console.log("o produto é: " + calcula_produto(x, y));
+            console.log("o produto é: " + calcula_produto(n1, n2));
 
     /*2 - Faça um programa que calcule e imprima a média ponderada de um aluno. Inicialmente, o programa deverá
      ler o peso da primeira prova e o peso da segunda prova (ambos inteiros). A seguir, o programa deverá ler
@@ -47,27 +44,88 @@
 
             let p1 = parseInt(prompt("Digite o peso 1:"));
             let p2 = parseInt(prompt("Digite o peso 2:"));
+            let matricula = parseInt(prompt("Digite sua matrícula:"));
             let av1 = parseFloat(prompt("Digite a nota da avaliação 1:"));
             let av2 = parseFloat(prompt("Digite a nota da avaliação 2:"));
 
-            console.log("o cálculo da média ponderada é: " + calcula_media_ponderada(p1,p2,av1,av2));
+
+            console.log("o cálculo da média ponderada do aluno de matrícula " + matricula + " é: " 
+            + calcula_media_ponderada(p1,p2,av1,av2));
 
     /*3 - Altere o programa do exercício 2 para que ele utilize a função calcula_produto do exercício 1
      no cálculo da média ponderada;*/
 
             function calcula_media_ponderada1(peso1, peso2, ava1, ava2) {
-            let media_ponderada1 = (calcula_produto(peso1, ava1) + calcula_produto(peso2, ava2)) / (peso1 + ava2);
+            let media_ponderada1 = (calcula_produto(peso1, ava1) + calcula_produto(peso2, ava2)) / (peso1 + peso2);
             return media_ponderada1.toFixed(1);
             };
 
             let peso1 = parseInt(prompt("Digite o peso I:"));
             let peso2 = parseInt(prompt("Digite o peso II:"));
+            let matricula2 = parseInt(prompt("Digite sua matrícula:"));
             let ava1 = parseFloat(prompt("Digite a primeira nota:"));
             let ava2 = parseFloat(prompt("Digite a segunda nota:"));
 
-            console.log("o resultado da sua média ponderada é: " + calcula_media_ponderada1(peso1,peso2,ava1,ava2));
-            
+            console.log("o resultado da sua média ponderada do aluno de matrícula " + matricula2 + " é: "
+             + calcula_media_ponderada1(peso1,peso2,ava1,ava2));
 
+    /*4 - Altere o programa do exercício 3 para que ele processe os dados de 2 alunos ao invés de apenas 
+    1; */
+
+           function calcula_media_ponderada1(peso1, peso2, ava1, ava2) {
+            let media_ponderada1 = (calcula_produto(peso1, ava1) + calcula_produto(peso2, ava2)) 
+            / (peso1 + peso2);
+            return media_ponderada1.toFixed(1);
+            };
+
+            let peso1al1 = parseInt(prompt("Digite o peso I:"));
+            let peso2al1 = parseInt(prompt("Digite o peso II:"));
+            let matriculaal1 = parseInt(prompt("Digite sua matrícula:"));
+            let ava1al1 = parseFloat(prompt("Digite a primeira nota:"));
+            let ava2al1 = parseFloat(prompt("Digite a segunda nota:"));
+
+            let peso1al2 = parseInt(prompt("Digite o peso I:"));
+            let peso2al2 = parseInt(prompt("Digite o peso II:"));
+            let matriculaal2 = parseInt(prompt("Digite sua matrícula:"));
+            let ava1al2 = parseFloat(prompt("Digite a primeira nota:"));
+            let ava2al2 = parseFloat(prompt("Digite a segunda nota:"));
+
+            console.log("o resultado da sua média ponderada do aluno de matrícula " + matriculaal1 + " é: "
+             + calcula_media_ponderada1(peso1al1,peso2al1,ava1al1,ava2al1));
+
+            console.log("o resultado da sua média ponderada do aluno de matrícula " + matriculaal2 + " é: "
+             + calcula_media_ponderada1(peso1al2,peso2al2,ava1al2,ava2al2));
+
+    /*5 - Faça um programa que leia um valor real representando o gasto realizado por um cliente de um 
+    restaurante e imprima o valor total a ser pago, considerando os 10% do garçom. O seu programa deve, 
+    obrigatoriamente, utilizar uma função que receba o valor do gasto e retorne o valor total a 
+    ser pago pelo cliente; */
+
+            function calcula_total(valor) {
+                return (valor + (valor*0.1));
+            }
+
+            let valor = parseFloat(prompt("Digite o gasto do cliente:"));
+
+            console.log("o valor total da conta é: " + calcula_total(valor));
+    
+    /*6 - Implemente, utilizando funções, um programa que receba do usuário o valor do salário bruto 
+    de um funcionário e imprima o valor com descontos de INSS, FGTS e Plano de Saúde. 
+    O programa deve utilizar uma função para calcular cada um dos descontos, sendo que estas 
+    funções devem receber o valor do salário bruto e retornar o valor a ser descontado. 
+    Os valores descontados devem ser:
+
+        - INSS: 10% do valor bruto;
+        - FGTS: 8%;
+        - Plano de Saúde: R$100,00. */
+
+        function calcula_salario(salario) {
+            return (salario - (salario*0.1) - (salario*0.08) - 100)
+        }
+
+        let salario = parseFloat(prompt("Digite o valor do salário bruto:"));
+
+        console.log("O valor a ser recebido pelo usuário é: " + calcula_salario(salario));
     
     </script>
 </body>
